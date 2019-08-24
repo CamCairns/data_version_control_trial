@@ -1,3 +1,5 @@
-# Data Version Control
+# House Prices: Advanced Regression Techniques
 
-Exploring Data Version Control (DVC) https://dvc.org
+Kaggle comp here: https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+
+More just using it to play around with Data Version Control (DVC) https://dvc.org.
