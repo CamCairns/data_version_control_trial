@@ -59,38 +59,44 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # * fill any missing values with the mode
 # * Fit an OLS regression
 
-# In[14]:
+# In[23]:
 
 
-feats = pr.description_set['correlations']['spearman']["SalePrice"].sort_values(ascending=False).index[1:11]
+df.corrwith(df['SalePrice']).sort_values(ascending=False).index[1:10]
+
+
+# In[24]:
+
+
+feats = pr.description_set['correlations']['spearman']["SalePrice"].sort_values(ascending=False).index[1:10]
 target = "SalePrice"
 
 
-# In[15]:
+# In[25]:
 
 
 df['GarageYrBlt'] = df['GarageYrBlt'].fillna(df['GarageYrBlt'].mode()[0])
 
 
-# In[16]:
+# In[26]:
 
 
 pp.ProfileReport(df[feats])
 
 
-# In[17]:
+# In[27]:
 
 
 X_train, X_test, y_train, y_test = train_test_split(df[feats], df[target], test_size=0.3)
 
 
-# In[18]:
+# In[28]:
 
 
 rgr = linear_model.LinearRegression().fit(X_train, y_train)
 
 
-# In[19]:
+# In[29]:
 
 
 mean_squared_error(y_test, rgr.predict(X_test))**0.5
